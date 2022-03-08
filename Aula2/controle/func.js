@@ -5,7 +5,7 @@ $(document).ready(function() {
 
         let dados = $('#form').serialize()
 
-        $('#retorno').empty()
+        $('#retorn').empty()
 
         $.ajax({
             type: 'POST',
@@ -14,13 +14,13 @@ $(document).ready(function() {
             data: dados,
             url: '../modelo/retorno.php',
             success: function(dados) {
-                $('#retorno').append(`
+                $('#retorn').append(`
                     <div class="col-12 col-sm-8 col-md-6">
                 <div class="alert-secondary">
                     <h1 class="text-white text-center">
                         ${dados.mensagem}
                     </h1>
-                    <img src="../../img/${dados.tipo}" class="img-fluid">
+                    <img src="../../img2/${dados.tipo}" class="img-fluid">
                 </div>
             </div>
                 `)
