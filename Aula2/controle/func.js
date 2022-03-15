@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.btn-send').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form').serialize()
+        let dados = $('#form2').serialize()
 
         $('#retorn').empty()
 
@@ -12,7 +12,7 @@ $(document).ready(function() {
             dataType: 'JSON',
             assync: true,
             data: dados,
-            url: '../modelo/retorno.php',
+            url: '../modelo/return.php',
             success: function(dados) {
                 $('#retorn').append(`
                     <div class="col-12 col-sm-8 col-md-6">

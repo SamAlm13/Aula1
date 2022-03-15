@@ -4,9 +4,10 @@ $NOME = $_REQUEST['NOME'];
 $DATA = $_REQUEST['DATA'];
 $BEBIDA = $_REQUEST['BEBIDA'];
 
-    $DATA = date(d/m/Y);
+$d1 = new DateTime('now');
+$d2 = new DateTime($DATA);
 
-    $idade = 2022 - date(Y) ;
+$intervalo = $d1->diff( $d2 );
 
 if(empty($NOME)){
     $dados = array(
@@ -16,19 +17,17 @@ if(empty($NOME)){
     );
 } 
 else {
-    $DATA
-    if($idade < 18){
-        case $idade < 18 : 
-            $dados = array(
-            "tipo" => 'menor.png',
-            "mensagem" => 'Olá '.$NOME.', você tem '.$idade.' Sabemos que sua bebida favorito é'.$BEBIDA.
-            );
-        }else{ 
-            $dados = array(
-                "tipo" => 'menor.png',
-                "mensagem" => 'Olá '.$NOME.', você tem '.$idade.' Sabemos que sua bebida favorito é'.$BEBIDA.
-            );
-        break;
+    if($intervalo->y < 18){ 
+        $dados = array(
+            "tipo" => 'menor.jpg',
+            "mensagem" => 'Olá '.$NOME.', você tem ' . $intervalo->y .' anos e é menor de idade, Sabemos que sua bebida favorito é '. $BEBIDA 
+        );
+    } else{ 
+        $dados = array(
+            "tipo" => 'maior.jpeg',
+            "mensagem" => 'Olá '.$NOME.', você tem '. $intervalo->y .' anos e é maior idade, Sabemos que sua bebida favorito é '. $BEBIDA
+        );
+    
     }
 }
 
